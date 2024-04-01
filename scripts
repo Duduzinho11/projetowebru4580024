@@ -1,0 +1,222 @@
+/**
+ * Eduardo Tiggemann RU: 4580024
+ * Curso de Análise e Desenvolvimento de Sistemas - UNINTER
+ * Matéria: Fundamentos da Programação Web
+ **/
+
+// Puxando função a do conteúdo da página inicial
+function homeContent() {
+  return `
+        <div class="home-container">
+            <h1 class="main-title">Olá! Eu sou o Eduardo Tiggemann.</h1>
+            <p class="boxcontent">Cursando Análise e Desenvolvimento de Sistemas - UNINTER</p>
+            <p class="boxcontent">Guiado pelo compromisso com a excelência e a inovação, superamos limites para conceber soluções que deixam uma marca significativa no mundo.</p>
+        </div>
+    `;
+}
+
+//Puxando função para gerar o conteúdo da página (Sobre Mim)
+function sobreMimContent() {
+  const cargo = "Tecnico em Projetos I - Certel"
+  const idade = calculoIdade('2002-03-28');
+  const cidade = "Teutônia - RS";
+  const hobbies = " um gosto profundo por treino na academia e ciclismo amador, curtindo aos momentos livres com meus amigos, e se aventurando no mundo da gastronomia, onde estou desabroxando a criação de experiências saborosas na cozinha";
+
+  return `
+        <div class="sobre-container">
+            <h1 class="main-title">Sobre Mim</h1>
+            <p class="boxcontent">Fala, pessoal! Eu sou o Eduardo, ${cargo}, com ${idade} anos de histórias e muitos projetos na bagagem.</p>
+            <p class="boxcontent">Moro em ${cidade} onde nasci e me criei, onde equilibro a minha vida profissional  com momentos de descontração, ${hobbies}.</p>
+            <p class="boxcontent"></p>
+            <p class="boxcontent">A minha carreira iniciou como estagiário, cheio de entusiasmo e vontade de aprender. Desde o início, me dediquei a cada tarefa, buscando sempre contribuir da melhor forma. Abracei cada desafio como uma oportunidade de crescimento e desenvolvimento..</p>
+            <p class="boxcontent">Olhando para trás, sinto orgulho da minha trajetória profissional. Desde o início como estagiário até a efetivação, cada passo foi fundamental para meu crescimento como profissional e como pessoa. Sou grato pela oportunidade de ter aprendido e me desenvolvido em uma empresa que valoriza seus colaboradores.
+            <p class="boxcontent">O futuro me reserva novos desafios e oportunidades de crescimento. Estou confiante de que continuarei a me desenvolver profissionalmente e contribuir para o sucesso da empresa. Minha jornada profissional é uma história de dedicação, aprendizado e conquista, que me motiva a seguir em frente com entusiasmo e ambição.</p>
+            <button class="btn-voltar">Voltar</button>
+        </div>
+    `;
+}
+
+
+//  "Formação"
+function formacaoContent() {
+  return `
+        <div class="formacao-container">
+            <h1 class="main-title">Formação</h1>
+            <p class="boxcontent">Atualmente, estou focado em adquirir conhecimento prático e técnico por meio de cursos, treinamentos e projetos pessoais. Embora não tenha concluído nenhum curso de graduação, estou constantemente buscando oportunidades de aprendizado e desenvolvimento profissional.</p>
+            <p class="boxcontent">Alguns dos cursos de técnicos e de gradução que iniciei:</p>
+            <ul>
+                <li>Técnico em Eletrotécnico - Colégio Teutônia (2021)</li>
+                <li>Análise e Desenvolvimento de Sistemas - UNINTER(Atual)</li>
+            </ul>
+            <p class="boxcontent">Alguns dos cursos extras que já concluí:</p>
+            <ul>
+                <li>Aerolevantamento com drones</li>
+                <li>Topografia 3D e LIDAR</li>
+                <li>Inspeções com drones</li>
+                <li>Processamento de imagens com drone</li>
+            </ul>
+            <p class="boxcontent">Contudo, além dos cursos sempre tento me aperfeiçoar tanto tecnologicamente quanto profissionalmente, participo de eventos da indústria para me manter atualizado com as últimas tendências e tecnologias.</p>
+            <button class="btn-voltar">Voltar</button>
+        </div>
+    `;
+}
+
+//  "Meu Portfólio" Código para a função
+function portfolioContent() {
+  return `
+        <div class="portfolio-container">
+            <h1 class="main-title">Meu Portfólio</h1>
+            <div class="project">
+                <h2 class="project-title">Meu Perfil no GitHub</h2>
+                <p class="project-description">Não tenho projetos particulares no meu GitHub, mas mesmo assim da uma conferida no meu perfil.</p>
+                <div class="project-links"><a href="https://github.com/Duduzinho11/" target="_blank" class="project-link"><i class="fab fa-github"></i> Duduzinho11</a></div>
+            </div>
+            <button class="btn-voltar">Voltar</button>
+        </div>
+    `;
+}
+
+/**
+ *   "Contato" Código para a função
+ * */
+function contatoContent() {
+ 
+  setTimeout(() => {
+    document
+      .getElementById("contact-form")
+      .addEventListener("submit", function (event) {
+        // Previne o comportamento padrão do formulário (enviar o formulário para o navegador)
+        event.preventDefault();
+
+        // Valores dos campos pelo ID
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        // Encaminha os dados para plataforma de envio de e-mail
+        fetch("https://formspree.io/f/xwkgqyvd", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message,
+          }),
+        })
+          .then((response) => {
+            // Limpa campos após envio sucedido
+            if (response.ok) {
+              document.getElementById("name").value = "";
+              document.getElementById("email").value = "";
+              document.getElementById("message").value = "";
+              alert("Mensagem enviada com sucesso!");
+            } else {
+              // Exibe uma mensagem de erro se o envio falhar
+              alert(
+                "Por favor, tente novamente."
+              );
+            }
+          })
+          .catch((error) => {
+            console.error("Erro:", error);
+            // Mensagem de erro caso ocorra um erro
+            alert(
+              "Durante a execução houve um erro, favor tente novamente."
+            );
+          });
+      });
+  }, 0);
+
+  // "Contato"
+  return `
+        <div class="contato-container">
+            <h1 class="main-title">Contato</h1>
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+                      </div>
+              <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                  <label for="message">Mensagem:</label>
+                  <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn-submit">Enviar</button>
+          </form>
+          <button class="btn-voltar">Voltar</button>
+        </div>
+    `;
+}
+
+// Calcular a idade conforme data do nascimento
+function calculoIdade(dataNascimento) {
+  const hoje = new Date();
+  const nascimento = new Date(dataNascimento);
+  let idade = hoje.getFullYear() - nascimento.getFullYear();
+  const m = hoje.getMonth() - nascimento.getMonth();
+  if (m < 0 || (m === 0 && hoje.getDate() < nascimento.getDate())) {
+    idade--;
+  }
+  return idade;
+}
+
+// Função para definir o botão "ativo" no menu
+function setActiveButton(selectedButtonId) {
+  const buttons = document.querySelectorAll("nav button");
+  buttons.forEach((button) => {
+    if (button.id === selectedButtonId) {
+      button.classList.add("active");
+    } else {
+      button.classList.remove("active");
+    }
+  });
+}
+
+// Botão "Home"
+document.getElementById("home").addEventListener("click", () => {
+  document.getElementById("content").innerHTML = homeContent();
+  setActiveButton("home");
+});
+
+// Botão "Sobre mim"
+document.getElementById("sobreMim").addEventListener("click", () => {
+  document.getElementById("content").innerHTML = sobreMimContent();
+  setActiveButton("sobreMim");
+});
+
+// Botão "Formação"
+document.getElementById("formacao").addEventListener("click", () => {
+  document.getElementById("content").innerHTML = formacaoContent();
+  setActiveButton("formacao");
+});
+
+// Botão "Portfolio"
+document.getElementById("portfolio").addEventListener("click", () => {
+  document.getElementById("content").innerHTML = portfolioContent();
+  setActiveButton("portfolio");
+});
+
+// Botão "Contato"
+document.getElementById("contato").addEventListener("click", () => {
+  document.getElementById("content").innerHTML = contatoContent();
+  setActiveButton("contato");
+});
+
+// Event listener para carregar o conteúdo "Home" por padrão quando a página é carregada
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("content").innerHTML = homeContent();
+  setActiveButton("home"); // Define a home como ativa logo qdo carregar a página!
+
+  // Adiciona event escutando o botão "Voltar" em todos os conteúdos
+  document.getElementById("content").addEventListener("click", (event) => {
+    if (event.target.classList.contains("btn-voltar")) {
+      document.getElementById("content").innerHTML = homeContent();
+      setActiveButton("home");
+    }
+  });
+});

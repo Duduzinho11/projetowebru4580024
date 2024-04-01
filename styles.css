@@ -1,0 +1,302 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #627aad;
+  color: white;
+  padding: 0;
+  text-align: center;
+}
+
+nav button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+header nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 40px;
+  display: flex;
+  justify-content: left;
+  background-color: #1b7fd1;
+}
+
+nav button:hover {
+  color: #ddd;
+}
+
+nav button.active {
+  color: #333333;
+  border-bottom: 2px solid #000000;
+}
+
+main {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+footer {
+  position: fixed;
+  background-color: #123958;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-link {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.social-link:hover {
+  color: #4caf50;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+}
+
+/* Estilo para links normais */
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 5px;
+}
+
+
+/* Estilo para links ao passar o mouse */
+footer a:hover {
+  color: #028dff; /* Cor ao passar o mouse (hover) */
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Estilos para a página de Home, e outros estilos para multiplas paginas */
+.home-container {
+  text-align: center;
+  padding: 20px;
+  color: #333;
+  background-color: #4796f126;
+  border-radius: 10px;
+  margin: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-title {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  color: #2a2a2a;
+}
+
+.boxcontent {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.boxcontent-ul {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  background-color: #2a2a2a;
+}
+
+.btn-voltar {
+  background-color: #ffffff33;
+  font-size: 1.2em;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2%;
+}
+.btn-voltar:hover {
+    background-color: #4e4e4e25;
+  }
+
+/* Estilos específicos para a página de Sobre */
+.sobre-container {
+  text-align: center;
+  padding: 30px;
+  color: #333;
+  background-color: rgba(25, 97, 192, 0.1);
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 132, 255, 0.45);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilos específicos para a página de Formação */
+.formacao-container {
+  text-align: center;
+  padding: 30px;
+  color: #2b2a2a;
+  background-color: #4796f126;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formacao-container ul li {
+  list-style-type: circle;
+  margin: 20px;
+}
+
+.formacao-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.formacao-container ul li {
+  margin-bottom: 10px;
+}
+
+/* Estilos específicos para a página de portfólio */
+.portfolio-container {
+  padding: 30px;
+  text-align: center;
+  color: #333;
+  background-color: #4796f126;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project {
+  background-color: #4796f126;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-title {
+  font-size: 1.5em;
+  color: #000000;
+}
+
+.project-description {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.project-link {
+  background-color: #d5ff3b80;
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.project-link:hover {
+  background-color: #d5ff3bdd;
+}
+
+.project-links {
+  margin: 30px;
+}
+
+/* Estilos específicos para a página de contato */
+.contato-container {
+  padding: 20px;
+  text-align: center;
+  color: #333;
+  background-color: #4796f126;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 1.2em;
+  color: #2a2a2a;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.btn-submit {
+  background-color: #0967d391;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+.btn-submit:hover {
+  background-color: #45a049;
+}
